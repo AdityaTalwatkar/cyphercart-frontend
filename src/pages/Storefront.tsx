@@ -18,12 +18,12 @@ export default function Storefront() {
 
   useEffect(() => {
     // 1. Fetch main catalog
-    axios.get("http://localhost:8080/api/catalog")
+    axios.get("https://cyphercart-backend-wexa.onrender.com/api/catalog")
       .then((res) => setProducts(res.data))
       .catch((err) => console.error("Catalog error:", err));
 
     // 2. Fetch graph recommendations matching your CatalogController.java
-    axios.get("http://localhost:8080/api/catalog/recommendations/alice")
+    axios.get("https://cyphercart-backend-wexa.onrender.com/api/catalog/recommendations/alice")
       .then((res) => setRecommendations(res.data))
       .catch((err) => console.error("Recommendations error:", err))
       .finally(() => setLoading(false));

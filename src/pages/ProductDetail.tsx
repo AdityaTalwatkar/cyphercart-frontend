@@ -11,7 +11,7 @@ export default function ProductDetail() {
 
   useEffect(() => {
     // 1. Fetch catalog products to find the current item details
-    axios.get(`http://localhost:8080/api/catalog`)
+    axios.get(`https://cyphercart-backend-wexa.onrender.com/api/catalog`)
       .then((res) => {
         const found = res.data.find((p: any) => p.id === id);
         setProduct(found);
@@ -20,7 +20,7 @@ export default function ProductDetail() {
 
     // 2. Dynamically fetch product-specific graph recommendations
     if (id) {
-      axios.get(`http://localhost:8080/api/catalog/recommendations/user-1/${id}`)
+      axios.get(`https://cyphercart-backend-wexa.onrender.com/api/catalog/recommendations/user-1/${id}`)
         .then((res) => {
           setRecommendations(res.data);
         })

@@ -10,7 +10,7 @@ export default function AdminDashboard() {
   const [stock, setStock] = useState("");
 
   const fetchInventory = () => {
-    axios.get("http://localhost:8080/api/admin/products")
+    axios.get("https://cyphercart-backend-wexa.onrender.com/api/admin/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.error("Error fetching inventory:", err));
   };
@@ -31,7 +31,7 @@ export default function AdminDashboard() {
 
     console.log("Sending payload to backend:", payload);
 
-    axios.post("http://localhost:8080/api/admin/products", payload)
+    axios.post("https://cyphercart-backend-wexa.onrender.com/api/admin/products", payload)
       .then(() => {
         setName(""); setBrand(""); setCategory(""); setPrice(""); setStock("");
         fetchInventory();
@@ -43,7 +43,7 @@ export default function AdminDashboard() {
   };
 
   const handleDelete = (id: string) => {
-    axios.delete(`http://localhost:8080/api/admin/products/${id}`)
+    axios.delete(`https://cyphercart-backend-wexa.onrender.com/api/admin/products/${id}`)
       .then(() => fetchInventory())
       .catch((err) => console.error("Error deleting:", err));
   };
